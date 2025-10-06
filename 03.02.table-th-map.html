@@ -21,8 +21,8 @@
                     <table>
                         <thead>
                             <tr>
-                                {this.props.headers.map((title) => {
-                                    return <th>{title}</th>;
+                                {this.props.headers.map((title, idx) => {
+                                    return <th key={idx}>{title}</th>;
                                 })}
                             </tr>
                         </thead>
