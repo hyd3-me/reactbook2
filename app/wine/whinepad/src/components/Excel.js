@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import clone from '../modules/clone';
 import { useState, useReducer } from 'react';
 
+import './Excel.css';
+
 let originalData = null;
 function reducer(data, action) {
     if (action.type === 'sort') {
@@ -114,7 +116,7 @@ function Excel({ headers, initialData }) {
     );
 
     return (
-        <div>
+        <div className="Excel">
             <div className="toolbar">
                 <button onClick={toggleSearch}>
                     {search ? 'Hide search' : 'Show search'}
