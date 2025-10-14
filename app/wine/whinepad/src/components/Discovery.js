@@ -3,6 +3,7 @@ import Logo from './Logo';
 import Header from './Header';
 import Body from './Body';
 import Button from './Button';
+import Suggest from './Suggest';
 
 function Discovery() {
     return (
@@ -28,6 +29,10 @@ function Discovery() {
                 Custom class name:{' '}
                 <Button className="Discovery-custom-button">I do nothing
                 </Button>
+            </p>
+            <h2> Suggest</h2>
+            <p>
+                <Suggest options={['eenie', 'meenie', 'miney', 'mo']} />
             </p>
         </div>
     );
