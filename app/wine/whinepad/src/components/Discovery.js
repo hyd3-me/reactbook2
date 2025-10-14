@@ -4,6 +4,8 @@ import Header from './Header';
 import Body from './Body';
 import Button from './Button';
 import Suggest from './Suggest';
+import Rating from './Rating';
+import FormInput from './FormInput';
 
 function Discovery() {
     return (
@@ -34,7 +36,55 @@ function Discovery() {
             <p>
                 <Suggest options={['eenie', 'meenie', 'miney', 'mo']} />
             </p>
-        </div>
+            <h2>Rating</h2>
+            <p>
+                No initial value: <Rating />
+            </p>
+            <p>
+                Initial value 4: <Rating defaultValue={4} />
+            </p>
+            <p>
+                This one goes to 11: <Rating max={11} />
+            </p>
+            <p>
+                Read-only: <Rating readonly={true} defaultValue={3} />
+            </p>
+            <h2>Form inputs</h2>
+            <table className="Discovery-pad">
+                <tbody>
+                    <tr>
+                        <td>Vanilla input</td>
+                        <td><FormInput /></td>
+                    </tr>
+                    <tr>
+                        <td>Prefilled</td>
+                        <td><FormInput defaultValue="with a default" /></td>
+                    </tr>
+                    <tr>
+                        <td>Year</td>
+                        <td><FormInput type="year" /></td>
+                    </tr>
+                    <tr>
+                        <td>Rating</td>
+                        <td><FormInput type="rating" defaultValue={4} /></td>
+                    </tr>
+                    <tr>
+                        <td>Suggest</td>
+                        <td>
+                            <FormInput
+                                type="suggest"
+                                options={['red', 'green', 'blue']}
+                                defaultValue="green"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vanilla textarea</td>
+                        <td><FormInput type="textarea" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div >
     );
 }
 
