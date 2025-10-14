@@ -1,3 +1,4 @@
+import {useRef, useState} from 'react';
 import Excel from './Excel';
 import Logo from './Logo';
 import Header from './Header';
@@ -6,8 +7,11 @@ import Button from './Button';
 import Suggest from './Suggest';
 import Rating from './Rating';
 import FormInput from './FormInput';
+import Form from './Form';
 
 function Discovery() {
+    const form = useRef();
+
     return (
         <div className="Discovery">
             <h2>Logo</h2>
@@ -84,6 +88,41 @@ function Discovery() {
                     </tr>
                 </tbody>
             </table>
+            <h2>Form</h2>
+            <div className="Discovery-pad Discovery-narrow">
+                <Form
+                    ref={form}
+                    fields={{
+                        rateme: { label: 'Rating', type: 'rating' },
+                        freetext: { label: 'Greetings' },
+                    }}
+                    initialData={{ rateme: 4, freetext: 'Hello' }}
+                />
+                <p>
+                    <Button
+                        onClick={() => {
+                            const data = {};
+                            Array.from(form.current).forEach(
+                                (input) => (data[input.id] = input.value),
+                            );
+                            alert(JSON.stringify(data));
+                        }}>
+                        Submit
+                    </Button>
+                </p>
+            </div>
+
+            <h3>Readonly form</h3>
+            <div className="Discovery-pad">
+                <Form
+                    fields={{
+                        rateme: { label: 'Rating', type: 'rating' },
+                        freetext: { label: 'Greetings' },
+                    }}
+                    initialData={{ rateme: 4, freetext: 'Hello' }}
+                    readonly
+                />
+            </div>
         </div >
     );
 }
