@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 import Excel from './Excel';
 import Logo from './Logo';
 import Header from './Header';
@@ -8,6 +8,7 @@ import Suggest from './Suggest';
 import Rating from './Rating';
 import FormInput from './FormInput';
 import Form from './Form';
+import Actions from './Actions';
 
 function Discovery() {
     const form = useRef();
@@ -123,6 +124,12 @@ function Discovery() {
                     readonly
                 />
             </div>
+
+            <h2>Actions</h2>
+            <p>
+                <Actions onAction={(type) => alert(type)} />
+            </p>
+
         </div >
     );
 }
