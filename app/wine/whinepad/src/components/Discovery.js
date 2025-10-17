@@ -59,6 +59,14 @@ function Discovery() {
             }}>
                 <Logo />
             </div>
+
+            <h2>Header</h2>
+            <Header
+                onSearch={(e) => console.log(e)}
+                onAdd={() => alert('add')}
+                count={3}
+            />
+
             <h2>Body</h2>
             <Body>I am content inside the body</Body>
             <h2>Buttons</h2>
